@@ -107,8 +107,7 @@ async def test_aes128(dut):
     cocotb.start_soon(Clock(dut.clk, 10, unit="ns").start())
 
     # Load test vectors
-    # tb_dir = os.path.dirname(__file__)
-    tb_dir = os.getcwd()
+    tb_dir = os.path.dirname(__file__)
     test_pt  = load_vectors(os.path.join(tb_dir, "pt_vectors.txt"))
     test_key = load_vectors(os.path.join(tb_dir, "key_vectors.txt"))
     test_ct  = load_vectors(os.path.join(tb_dir, "ct_vectors.txt"))
