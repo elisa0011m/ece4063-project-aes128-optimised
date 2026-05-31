@@ -18,7 +18,6 @@ SIM_BUILD				= sim_build/rtl
 #VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
 
 VERILOG_SOURCES += $(SRC_DIR)/tt_um_elisa0011m_aes_opt_top.v
-VERILOG_SOURCES += $(SRC_DIR)/aes_top.v
 VERILOG_SOURCES += $(SRC_DIR)/mix_columns.v
 VERILOG_SOURCES += $(SRC_DIR)/sbox_rom.v
 VERILOG_SOURCES += $(SRC_DIR)/shift_rows.v
