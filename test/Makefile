@@ -6,18 +6,28 @@ SIM ?= icarus
 FST ?= -fst # Use more efficient FST format
 TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
-PROJECT_SOURCES = project.v
+PROJECT_SOURCES  = tt_um_elisa0011m_aes_opt_top.v
+PROJECT_SOURCES += mix_columns.v
+PROJECT_SOURCES += shift_rows.v
+PROJECT_SOURCES += sbox_rom.v
 
 ifneq ($(GATES),yes)
 
 # RTL simulation:
 SIM_BUILD				= sim_build/rtl
-VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
+#VERILOG_SOURCES += $(addprefix $(SRC_DIR)/,$(PROJECT_SOURCES))
+
+VERILOG_SOURCES += $(SRC_DIR)/tt_um_elisa0011m_aes_opt_top.v
+VERILOG_SOURCES += $(SRC_DIR)/aes_top.v
+VERILOG_SOURCES += $(SRC_DIR)/mix_columns.v
+VERILOG_SOURCES += $(SRC_DIR)/sbox_rom.v
+VERILOG_SOURCES += $(SRC_DIR)/shift_rows.v
+
 
 else
 
 # Gate level simulation:
-SIM_BUILD				= sim_build/gl
+SIM_BUILD		= sim_build/gl
 COMPILE_ARGS    += -DGL_TEST
 COMPILE_ARGS    += -DFUNCTIONAL
 COMPILE_ARGS    += -DUSE_POWER_PINS
